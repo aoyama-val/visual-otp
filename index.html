@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenTripPlannerの経路探索結果を可視化するツール</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKWRLe_CDEPJGRMvzu25viim0jHekxA5s&libraries=geometry"></script>
+
+  <style>
+    html, body  { height: 100%; font-size: 14px; }
+    div#gmap { width: 100%; height: 400px; }
+    input#fromPlace, input#toPlace { width: 200px; }
+    table.route { border: 1px solid #ccc; border-collapse: collapse; }
+    table.route th, td{ border: 1px solid #ccc; padding: 5px 10px; }
+    table.route tbody tr:first-child { background: pink; font-weight: bold; }
+    div#links a { margin-right: 10px; }
+    button { font-size: 24px; background: skyblue; padding: 0.5rem 2rem; }
+    textarea#json { width: 100%; height: 400px; }
+  </style>
+
+  <script src="otp.js"></script>
+</head>
+<body>
+  <h1>OpenTripPlannerの経路探索結果を可視化するツール</h1>
+
+  endpoint: <input id="endpoint" type="text" value="http://localhost:8080/"><br>
+  fromPlace: <input id="fromPlace" type="text" value="34.656513,133.975075">
+  toPlace: <input id="toPlace" type="text" value="34.665495,133.918570"><br>
+
+  <button id="search" onclick="search_onclick()">経路探索</button>
+
+  <div id="links"></div>
+
+  <div id="gmap"></div>
+
+  <table class="route"></table>
+
+
+  JSON:（ここにJSONを貼り付けて可視化ボタンクリックでもいけます）<br>
+  <textarea id="json"></textarea>
+  <button id="visualize" onclick="visualize_onclick()">可視化</button>
+</body>
+</html>
+<!-- vim: set ts=2 sts=2 sw=2 expandtab list: -->
