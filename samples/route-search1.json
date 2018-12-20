@@ -1,0 +1,490 @@
+{
+  "requestParameters": {
+    "date": "12-20-2018",
+    "mode": "TRANSIT,WALK",
+    "arriveBy": "false",
+    "fromPlace": "34.656513,133.975075",
+    "toPlace": "34.665495,133.918570",
+    "time": "01:13pm",
+    "maxWalkDistance": "50000",
+    "numItineraries": "5"
+  },
+  "plan": {
+    "date": 1545279180000,
+    "from": {
+      "name": "Origin",
+      "lon": 133.975075,
+      "lat": 34.656513,
+      "orig": "",
+      "vertexType": "NORMAL"
+    },
+    "to": {
+      "name": "Destination",
+      "lon": 133.91857,
+      "lat": 34.665495,
+      "orig": "",
+      "vertexType": "NORMAL"
+    },
+    "itineraries": [
+      {
+        "duration": 1885,
+        "startTime": 1545279292000,
+        "endTime": 1545281177000,
+        "walkTime": 263,
+        "transitTime": 1620,
+        "waitingTime": 2,
+        "walkDistance": 321.01726315449815,
+        "walkLimitExceeded": false,
+        "elevationLost": 0,
+        "elevationGained": 0,
+        "transfers": 0,
+        "fare": {
+          "fare": {
+            "regular": {
+              "currency": {
+                "symbol": "JPY",
+                "currency": "JPY",
+                "defaultFractionDigits": 0,
+                "currencyCode": "JPY"
+              },
+              "cents": 340
+            }
+          },
+          "details": {
+            "regular": [
+              {
+                "fareId": "3:21002_210041_1_340",
+                "price": {
+                  "currency": {
+                    "symbol": "JPY",
+                    "currency": "JPY",
+                    "defaultFractionDigits": 0,
+                    "currencyCode": "JPY"
+                  },
+                  "cents": 340
+                },
+                "routes": [
+                  "3:21002_210041_1"
+                ]
+              }
+            ]
+          }
+        },
+        "legs": [
+          {
+            "startTime": 1545279292000,
+            "endTime": 1545279419000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 162.59199999999998,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 32400000,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Origin",
+              "lon": 133.975075,
+              "lat": 34.656513,
+              "departure": 1545279292000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "to": {
+              "name": "曹源寺",
+              "stopId": "3:233_1",
+              "lon": 133.97362,
+              "lat": 34.655666,
+              "arrival": 1545279419000,
+              "departure": 1545279420000,
+              "zoneId": "233_1",
+              "stopIndex": 12,
+              "stopSequence": 13,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points": "_zorEi_vpXz@fBDFp@nB`@nA",
+              "length": 5
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 127,
+            "steps": [
+              {
+                "distance": 162.59199999999998,
+                "relativeDirection": "DEPART",
+                "streetName": "岡山牛窓線",
+                "absoluteDirection": "SOUTHWEST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": 133.9750992100324,
+                "lat": 34.65648480613719,
+                "elevation": []
+              }
+            ]
+          },
+          {
+            "startTime": 1545279420000,
+            "endTime": 1545281040000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 6384.910322914787,
+            "pathway": false,
+            "mode": "BUS",
+            "route": "岡山西大寺線",
+            "agencyName": "両備バス",
+            "agencyUrl": "http://www.ryobi-holdings.jp/bus/",
+            "agencyTimeZoneOffset": 32400000,
+            "routeType": 3,
+            "routeId": "3:21002_210041_1",
+            "interlineWithPreviousLeg": false,
+            "headsign": "岡山駅",
+            "agencyId": "7260001007086",
+            "tripId": "3:183_210041113_20180901",
+            "serviceDate": "20181220",
+            "from": {
+              "name": "曹源寺",
+              "stopId": "3:233_1",
+              "lon": 133.97362,
+              "lat": 34.655666,
+              "arrival": 1545279419000,
+              "departure": 1545279420000,
+              "zoneId": "233_1",
+              "stopIndex": 12,
+              "stopSequence": 13,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "岡山駅",
+              "stopId": "3:18_9",
+              "lon": 133.9185,
+              "lat": 34.66481,
+              "arrival": 1545281040000,
+              "departure": 1545281041000,
+              "zoneId": "18_9",
+              "stopIndex": 27,
+              "stopSequence": 28,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points": "euorE{uupXNd@jB|FnBjGjAnDd@xAz@fCbMp`@@@rBvGR`AHhA?bAKvBGfD?BQdCOpC?dAAn@?`B?tEA~N@fLKfAKZ]`@g@Z]JA?{@D}CJeAFoCHqFVc@ByBFa@La@XM\\Il@Bp@p@zEFr@IZO\\_EvFi@~@?@[r@?h@B\\|@xBnAxCr@|ALXPd@@XIzHFpE@V?pFCz@ART|RQrUOpXAtBAdJ?xADvQ?`@?tLKn@q@PkGL{@BoMNyGN}@BwEB}ABsA@cCOcBOSLF\\xBrA",
+              "length": 88
+            },
+            "routeLongName": "岡山西大寺線",
+            "rentedBike": false,
+            "transitLeg": true,
+            "duration": 1620,
+            "steps": []
+          },
+          {
+            "startTime": 1545281041000,
+            "endTime": 1545281177000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 158.32,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 32400000,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "岡山駅",
+              "stopId": "3:18_9",
+              "lon": 133.9185,
+              "lat": 34.66481,
+              "arrival": 1545281040000,
+              "departure": 1545281041000,
+              "zoneId": "18_9",
+              "stopIndex": 27,
+              "stopSequence": 28,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Destination",
+              "lon": 133.91857,
+              "lat": 34.665495,
+              "arrival": 1545281177000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "legGeometry": {
+              "points": "_nqrEs}jpXDB\\RBD@B@D?F?DEJCJEBGBC?G?KISMMICAIEAAWOEEWMSMIE",
+              "length": 25
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 136,
+            "steps": [
+              {
+                "distance": 151.90099999999998,
+                "relativeDirection": "DEPART",
+                "streetName": "way 244104725 from 3",
+                "absoluteDirection": "SOUTHWEST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": 133.91850570047527,
+                "lat": 34.66480734810148,
+                "elevation": []
+              },
+              {
+                "distance": 6.419,
+                "relativeDirection": "CONTINUE",
+                "streetName": "way 244104725 from 24",
+                "absoluteDirection": "NORTHEAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": 133.9185449,
+                "lat": 34.6654404,
+                "elevation": []
+              }
+            ]
+          }
+        ],
+        "tooSloped": false
+      },
+      {
+        "duration": 2125,
+        "startTime": 1545279652000,
+        "endTime": 1545281777000,
+        "walkTime": 263,
+        "transitTime": 1860,
+        "waitingTime": 2,
+        "walkDistance": 321.01726315449815,
+        "walkLimitExceeded": false,
+        "elevationLost": 0,
+        "elevationGained": 0,
+        "transfers": 0,
+        "fare": {
+          "fare": {
+            "regular": {
+              "currency": {
+                "symbol": "JPY",
+                "currency": "JPY",
+                "defaultFractionDigits": 0,
+                "currencyCode": "JPY"
+              },
+              "cents": 340
+            }
+          },
+          "details": {
+            "regular": [
+              {
+                "fareId": "3:21002_210011_1_340",
+                "price": {
+                  "currency": {
+                    "symbol": "JPY",
+                    "currency": "JPY",
+                    "defaultFractionDigits": 0,
+                    "currencyCode": "JPY"
+                  },
+                  "cents": 340
+                },
+                "routes": [
+                  "3:21002_210011_1"
+                ]
+              }
+            ]
+          }
+        },
+        "legs": [
+          {
+            "startTime": 1545279652000,
+            "endTime": 1545279779000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 162.59199999999998,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 32400000,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Origin",
+              "lon": 133.975075,
+              "lat": 34.656513,
+              "departure": 1545279652000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "to": {
+              "name": "曹源寺",
+              "stopId": "3:233_1",
+              "lon": 133.97362,
+              "lat": 34.655666,
+              "arrival": 1545279779000,
+              "departure": 1545279780000,
+              "zoneId": "233_1",
+              "stopIndex": 12,
+              "stopSequence": 13,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points": "_zorEi_vpXz@fBDFp@nB`@nA",
+              "length": 5
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 127,
+            "steps": [
+              {
+                "distance": 162.59199999999998,
+                "relativeDirection": "DEPART",
+                "streetName": "岡山牛窓線",
+                "absoluteDirection": "SOUTHWEST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": 133.9750992100324,
+                "lat": 34.65648480613719,
+                "elevation": []
+              }
+            ]
+          },
+          {
+            "startTime": 1545279780000,
+            "endTime": 1545281640000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 6353.012091789746,
+            "pathway": false,
+            "mode": "BUS",
+            "route": "岡山西大寺線",
+            "agencyName": "両備バス",
+            "agencyUrl": "http://www.ryobi-holdings.jp/bus/",
+            "agencyTimeZoneOffset": 32400000,
+            "routeType": 3,
+            "routeId": "3:21002_210011_1",
+            "interlineWithPreviousLeg": false,
+            "headsign": "岡山駅",
+            "agencyId": "7260001007086",
+            "tripId": "3:183_210011152_20180901",
+            "serviceDate": "20181220",
+            "from": {
+              "name": "曹源寺",
+              "stopId": "3:233_1",
+              "lon": 133.97362,
+              "lat": 34.655666,
+              "arrival": 1545279779000,
+              "departure": 1545279780000,
+              "zoneId": "233_1",
+              "stopIndex": 12,
+              "stopSequence": 13,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "岡山駅",
+              "stopId": "3:18_9",
+              "lon": 133.9185,
+              "lat": 34.66481,
+              "arrival": 1545281640000,
+              "departure": 1545281641000,
+              "zoneId": "18_9",
+              "stopIndex": 29,
+              "stopSequence": 30,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points": "_uorE_vupXBFNt@jCpI`DxJTr@rDjLjInW??pBhGRz@PhB?xAU|F?B[pIAz@E|DAjIAxU?h@Y|@o@l@e@NM@g@DgHR_I`@O@iAHkBHi@d@Sn@?\\v@pG?b@G`@}E|G_@t@?@Y`A@n@H`@xDxI??`@jA@zO?RGrHIRSPg@@wGsAEAgAa@yC{BuHuCA?eBm@WIMPy@dEg@|DmAlLFXf@PlAhAv@fAlBdFFPt@nBEvM?l@CtK@fCsJAArAtCA|ECBpJIXYHoNJA?sC?wGCQRQ\\K`@JlR@rH@`J@lADNzBjA",
+              "length": 95
+            },
+            "routeLongName": "岡山西大寺線",
+            "rentedBike": false,
+            "transitLeg": true,
+            "duration": 1860,
+            "steps": []
+          },
+          {
+            "startTime": 1545281641000,
+            "endTime": 1545281777000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 158.32,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 32400000,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "岡山駅",
+              "stopId": "3:18_9",
+              "lon": 133.9185,
+              "lat": 34.66481,
+              "arrival": 1545281640000,
+              "departure": 1545281641000,
+              "zoneId": "18_9",
+              "stopIndex": 29,
+              "stopSequence": 30,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Destination",
+              "lon": 133.91857,
+              "lat": 34.665495,
+              "arrival": 1545281777000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "legGeometry": {
+              "points": "_nqrEs}jpXDB\\RBD@B@D?F?DEJCJEBGBC?G?KISMMICAIEAAWOEEWMSMIE",
+              "length": 25
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 136,
+            "steps": [
+              {
+                "distance": 151.90099999999998,
+                "relativeDirection": "DEPART",
+                "streetName": "way 244104725 from 3",
+                "absoluteDirection": "SOUTHWEST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": 133.91850570047527,
+                "lat": 34.66480734810148,
+                "elevation": []
+              },
+              {
+                "distance": 6.419,
+                "relativeDirection": "CONTINUE",
+                "streetName": "way 244104725 from 24",
+                "absoluteDirection": "NORTHEAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": 133.9185449,
+                "lat": 34.6654404,
+                "elevation": []
+              }
+            ]
+          }
+        ],
+        "tooSloped": false
+      }
+    ]
+  },
+  "debugOutput": {
+    "precalculationTime": 3040,
+    "pathCalculationTime": 344,
+    "pathTimes": [
+      272,
+      70
+    ],
+    "renderingTime": 97,
+    "totalTime": 3481,
+    "timedOut": false
+  },
+  "elevationMetadata": {
+    "ellipsoidToGeoidDifference": 35.177840154431976,
+    "geoidElevation": false
+  }
+}
