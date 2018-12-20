@@ -69,6 +69,8 @@ function visualize(itineraryIndex) {
     "mode",
     "from",
     "to",
+    "departure",
+    "arrival",
     "routeLongName",
   ]);
   polylines.forEach(function(poly) {
@@ -89,6 +91,8 @@ function visualize(itineraryIndex) {
       leg.mode,
       leg.from.name,
       leg.to.name,
+      moment(leg.from.departure).format('HH:mm'),
+      moment(leg.to.arrival).format('HH:mm'),
       leg.routeLongName,
     ]);
   });
