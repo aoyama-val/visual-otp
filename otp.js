@@ -25,27 +25,37 @@ function search_onclick() {
   console.log(url);
   $.getJSON(url)
   .then(function(res) {
-    result = res;
-    if (result.error) {
-      alert(result.error.msg);
-      return;
-    }
-    $('#json').val(JSON.stringify(res));
-    var links = '';
-    for (var i = 0; i < result.plan.itineraries.length; i++) {
-      links += '<a href="#" onclick="visualize(' + i + ')">経路' + i + '</a>';
-    }
-    $("#links").html(links);
-    if (result.plan.itineraries.length > 0) {
-      visualize(0);
-    } else {
-      alert('経路が見つからなかったようです');
-    }
+    setResult(res);
   })
   .catch(function(err) {
     alert("getJSONエラー");
     console.error(err);
   });
+}
+
+function setResult(res) {
+  result = res;
+
+  if (result.error) {
+    alert(result.error.msg);
+    return;
+  }
+  $('#json').val(JSON.stringify(res));
+  var links = '';
+  for (var i = 0; i < result.plan.itineraries.length; i++) {
+    links += '<a href="#" onclick="visualize(' + i + ')">経路' + i + '</a>';
+  }
+  $("#links").html(links);
+  if (result.plan.itineraries.length > 0) {
+    visualize(0);
+  } else {
+    alert('経路が見つからなかったようです');
+  }
+}
+
+function visualize_onclick() {
+  var json = $('#json').val();
+  setResult(JSON.parse(json));
 }
 
 function visualize(itineraryIndex) {
