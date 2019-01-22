@@ -1,12 +1,16 @@
 var map;
 var result;
 var polylines = [];
+var originMarker;
+var destinationMarker;
 
 $(function() {
   var center = new google.maps.LatLng(34.66021726845927, 133.94503203644524);
   var gmap_options = {
     zoom: 14,
     center: center,
+    clickableIcons: false,
+    gestureHandling: 'greedy',
   };
   map = new google.maps.Map(document.getElementById("gmap"), gmap_options);
   map.addListener("click", function(e) {
@@ -21,7 +25,10 @@ $(function() {
 
 function search_onclick() {
   var now = moment();
-  var url = $('#endpoint').val() + 'otp/routers/default/plan?fromPlace=' + $('#fromPlace').val() + '&toPlace=' + $('#toPlace').val() + '&time=' + now.format('hh:mma') + '&date=' + now.format('MM-DD-YYYY') + '&mode=TRANSIT,WALK&maxWalkDistance=50000&arriveBy=false&numItineraries=5';
+  var modes = [];
+  if ($('#mode_walk').is(':checked')) { modes.push('WALK'); }
+  if ($('#mode_transit').is(':checked')) { modes.push('TRANSIT'); }
+  var url = $('#endpoint').val() + 'otp/routers/default/plan?fromPlace=' + $('#fromPlace').val() + '&toPlace=' + $('#toPlace').val() + '&time=' + now.format('hh:mma') + '&date=' + now.format('MM-DD-YYYY') + '&mode=' + modes.join(',') + '&maxWalkDistance=50000&arriveBy=false&numItineraries=5';
   console.log(url);
   $.getJSON(url)
   .then(function(res) {
@@ -73,6 +80,23 @@ function visualize(itineraryIndex) {
     "arrival",
     "routeLongName",
   ]);
+  if (originMarker) { originMarker.setMap(null); }
+  if (destinationMarker) { destinationMarker.setMap(null); }
+  originMarker = new google.maps.Marker({
+    map: map,
+    position: {
+      lat: parseFloat(result.requestParameters.fromPlace.split(',')[0]),
+      lng: parseFloat(result.requestParameters.fromPlace.split(',')[1]),
+    }
+  });
+  destinationMarker = new google.maps.Marker({
+    map: map,
+    position: {
+      lat: parseFloat(result.requestParameters.toPlace.split(',')[0]),
+      lng: parseFloat(result.requestParameters.toPlace.split(',')[1]),
+    }
+  });
+  map.setCenter({ lat: parseFloat(result.requestParameters.fromPlace.split(',')[0]), lng: parseFloat(result.requestParameters.fromPlace.split(',')[1]) });
   polylines.forEach(function(poly) {
     poly.setMap(null);
   });
