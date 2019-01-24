@@ -5,6 +5,11 @@ var originMarker;
 var destinationMarker;
 
 $(function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('endpoint')) {
+    $('#endpoint').val(urlParams.get('endpoint'));
+  }
+
   var center = new google.maps.LatLng(34.66021726845927, 133.94503203644524);
   var gmap_options = {
     zoom: 14,
@@ -26,9 +31,13 @@ $(function() {
 function search_onclick() {
   var now = moment();
   var modes = [];
-  if ($('#mode_walk').is(':checked')) { modes.push('WALK'); }
-  if ($('#mode_transit').is(':checked')) { modes.push('TRANSIT'); }
-  var url = $('#endpoint').val() + 'otp/routers/default/plan?fromPlace=' + $('#fromPlace').val() + '&toPlace=' + $('#toPlace').val() + '&time=' + now.format('hh:mma') + '&date=' + now.format('MM-DD-YYYY') + '&mode=' + modes.join(',') + '&maxWalkDistance=50000&arriveBy=false&numItineraries=5';
+  $('.mode').each(function() {
+    var $this = $(this);
+    if ($this.is(':checked')) {
+      modes.push($this.val());
+    }
+  });
+  var url = $('#endpoint').val() + 'otp/routers/default/plan?fromPlace=' + $('#fromPlace').val() + '&toPlace=' + $('#toPlace').val() + '&time=' + now.format('hh:mma') + '&date=' + now.format('MM-DD-YYYY') + '&mode=' + modes.join(',') + '&arriveBy=false&numItineraries=5';
   console.log(url);
   $.getJSON(url)
   .then(function(res) {
