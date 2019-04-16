@@ -1,3 +1,5 @@
+var STORAGE_SAVED = 'saved';
+
 var map;
 var result;
 var polylines = [];
@@ -5,14 +7,29 @@ var originMarker;
 var destinationMarker;
 
 $(function() {
+  var saved = localStorage.getItem(STORAGE_SAVED);
+  if (saved) {
+    try {
+      saved = JSON.parse(saved);
+    } catch (err) {
+      saved = {};
+    }
+  } else {
+      saved = {};
+  }
+
+  if (saved.endpoint) {
+    $('#endpoint').val(saved.endpoint);
+  }
+
   var urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('endpoint')) {
     $('#endpoint').val(urlParams.get('endpoint'));
   }
 
-  var center = new google.maps.LatLng(34.66021726845927, 133.94503203644524);
+  var center = new google.maps.LatLng(saved.center_lat || 34.66021726845927, saved.center_lng || 133.94503203644524);
   var gmap_options = {
-    zoom: 14,
+    zoom: saved.zoom || 14,
     center: center,
     clickableIcons: false,
     gestureHandling: 'greedy',
@@ -29,6 +46,15 @@ $(function() {
 });
 
 function search_onclick() {
+  var endpoint = $('#endpoint').val();
+
+  localStorage.setItem(STORAGE_SAVED, JSON.stringify({
+    center_lat: map.getCenter().lat(),
+    center_lng: map.getCenter().lng(),
+    zoom: map.getZoom(),
+    endpoint: endpoint,
+  }));
+
   var now = moment();
   var modes = [];
   $('.mode').each(function() {
@@ -37,7 +63,9 @@ function search_onclick() {
       modes.push($this.val());
     }
   });
-  var url = $('#endpoint').val() + 'otp/routers/default/plan?fromPlace=' + $('#fromPlace').val() + '&toPlace=' + $('#toPlace').val() + '&time=' + now.format('hh:mma') + '&date=' + now.format('MM-DD-YYYY') + '&mode=' + modes.join(',') + '&arriveBy=false&numItineraries=5';
+  //var modes = ['CAR'];
+  var url = $('#endpoint').val() + 'otp/routers/default/plan?fromPlace=' + $('#fromPlace').val() + '&toPlace=' + $('#toPlace').val() + '&time=' + now.format('hh:mma') + '&date=' + now.format('MM-DD-YYYY') + '&mode=' + modes.join(',') + '&arriveBy=false&numItineraries=1';
+  $('#url').val(url);
   console.log(url);
   $.getJSON(url)
   .then(function(res) {

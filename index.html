@@ -19,6 +19,7 @@
     div#links a { margin-right: 10px; }
     button { font-size: 24px; background: skyblue; padding: 0.5rem 2rem; }
     textarea#json { width: 100%; height: 400px; }
+    #url { width: 100%; height: 2rem; }
   </style>
 
   <script src="otp.js"></script>
@@ -30,7 +31,13 @@
   fromPlace: <input id="fromPlace" type="text" value="34.656513,133.975075">
   toPlace: <input id="toPlace" type="text" value="34.665495,133.918570"><br>
 
+  <label><input type="radio" name="mode" value="WALK" checked class="mode">WALK</label>
+  <label><input type="radio" name="mode" value="CAR" class="mode">CAR</label>
+  <br>
+
   <button id="search" onclick="search_onclick()">経路探索</button>
+
+  <textarea id="url" readonly></textarea>
 
   <div id="links"></div>
 
