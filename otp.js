@@ -35,6 +35,7 @@ $(function() {
     gestureHandling: 'greedy',
   };
   map = new google.maps.Map(document.getElementById("gmap"), gmap_options);
+  /*
   map.addListener("click", function(e) {
     var latlng = e.latLng.lat() + "," + e.latLng.lng();
     if (confirm("どっちにセットする？\nOK→fromPlace\nキャンセル→toPlace")) {
@@ -42,6 +43,17 @@ $(function() {
     } else {
       $('#toPlace').val(latlng);
     }
+  });
+  */
+
+  GMapUtil.addAddressBox(map, 'address');
+
+  GMapUtil.enableSetOriginDestination(map, function(as, lat, lng) {
+      if (as == 'origin') {
+        $('#fromPlace').val(lat + ',' + lng);
+      } else {
+        $('#toPlace').val(lat + ',' + lng);
+      }
   });
 });
 
