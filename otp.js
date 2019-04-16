@@ -84,7 +84,7 @@ function setResult(res) {
     alert(result.error.msg);
     return;
   }
-  $('#json').val(JSON.stringify(res));
+  $('#json').val(JSON.stringify(res, null, 2));
   var links = '';
   for (var i = 0; i < result.plan.itineraries.length; i++) {
     links += '<a href="#" onclick="visualize(' + i + ')">経路' + i + '</a>';
@@ -138,7 +138,9 @@ function visualize(itineraryIndex) {
     poly.setMap(null);
   });
   polylines = [];
+  var totalDistance = 0;
   itinerary.legs.forEach(function(leg, i) {
+    totalDistance += leg.distance;
     var path = google.maps.geometry.encoding.decodePath(leg.legGeometry.points);
     var poly = new google.maps.Polyline({
       strokeColor: colors[leg.mode] || "#000000",
@@ -157,6 +159,7 @@ function visualize(itineraryIndex) {
       leg.routeLongName,
     ]);
   });
+  $('#totalDistance').val(Math.round(totalDistance));
   createTable(routeForDebug);
 }
 
