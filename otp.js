@@ -128,6 +128,9 @@ function visualize(itineraryIndex) {
     "departure",
     "arrival",
     "routeLongName",
+    "realTime",
+    "departureDelay",
+    "arrivalDelay"
   ]);
   if (originMarker) { originMarker.setMap(null); }
   if (destinationMarker) { destinationMarker.setMap(null); }
@@ -169,6 +172,9 @@ function visualize(itineraryIndex) {
       moment(leg.from.departure).format('HH:mm'),
       moment(leg.to.arrival).format('HH:mm'),
       leg.routeLongName,
+      leg.realTime,
+      leg.departureDelay,
+      leg.arrivalDelay
     ]);
   });
   $('#totalDistance').val(Math.round(totalDistance));
